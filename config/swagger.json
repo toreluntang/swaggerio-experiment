@@ -1,0 +1,457 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "String util",
+        "description": "Do string operations with rest services",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/v1/string/replacefirst": {
+            "get": {
+                "description": "replace first instance of old with new in str",
+                "operationId": "replaceFirst",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string containing everything",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "old",
+                        "in": "query",
+                        "description": "The old value to replace",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "new",
+                        "in": "query",
+                        "description": "The new value to replace with",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/replaceall": {
+            "get": {
+                "description": "replace all instance of old with new in string",
+                "operationId": "replaceAll",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string containing everything",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "old",
+                        "in": "query",
+                        "description": "The old value to replace",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "new",
+                        "in": "query",
+                        "description": "The new value to replace with",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/upper": {
+            "get": {
+                "description": "Turn the string in to uppercase",
+                "operationId": "toUpper",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/lower": {
+            "get": {
+                "description": "Turn the string in to lowercase",
+                "operationId": "toLower",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/startswith": {
+            "get": {
+                "description": "Checks if a string starts with a value",
+                "operationId": "startsWith",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string to check against",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "The search value to check if the string starts with",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/startswithignorecase": {
+            "get": {
+                "description": "Checks if a string starts with a value, while ignoring case (upper/lower)",
+                "operationId": "startsWithIgnoreCase",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string to check against",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "The search value to check if the string starts with",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/charat": {
+            "get": {
+                "description": "Get the character at a specified position",
+                "operationId": "charAt",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string extract from",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pos",
+                        "in": "query",
+                        "description": "The position in the string to extract",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/charcount": {
+            "get": {
+                "description": "Count the amount of characters in the string",
+                "operationId": "charCount",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string count from",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/wordcount": {
+            "get": {
+                "description": "Count the amount of words in the string",
+                "operationId": "wordCount",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string count from",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/contains": {
+            "get": {
+                "description": "Checks if str contains substr",
+                "operationId": "contains",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string check against",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "substr",
+                        "in": "query",
+                        "description": "The value that is looked for in the given string",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/containsignorecase": {
+            "get": {
+                "description": "Checks if str contains substr, ignoring case sensitivity",
+                "operationId": "containsIgnoreCase",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string check against",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "substr",
+                        "in": "query",
+                        "description": "The value that is looked for in the given string",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "String altered successfully",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/string/split": {
+            "get": {
+                "description": "Splits the given string with a chosen separator. If none is provided the string is split by ' '",
+                "operationId": "split",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "query",
+                        "description": "The string check against",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sep",
+                        "in": "query",
+                        "description": "the separator to split the string with.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Json array containing the split values",
+                        "schema": {
+                            "$ref": "#/definitions/StringResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "StringResponse": {
+            "description": "A confirmation that the email was sent",
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Error": {
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
